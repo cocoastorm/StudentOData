@@ -1,0 +1,5 @@
+﻿enable-migrations -ContextTypeName SchoolContext -MigrationsDirectory Migrations\SchoolMigrations
+
+add-migration -ConfigurationTypeName StudentService.Migrations.SchoolMigrations.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName StudentService.Migrations.SchoolMigrations.Configuration
