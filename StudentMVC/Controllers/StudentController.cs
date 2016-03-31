@@ -1,6 +1,8 @@
-﻿using System;
+﻿using StudentMVC.StudentService.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,12 +35,20 @@ namespace StudentMVC.Controllers
 
         // POST: Student/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Student student)
         {
             try
             {
                 // TODO: Add insert logic here
+                Student s = new Student
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    Major = student.Major
+                };
 
+                container.AddToStudents(s);
+                container.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -48,18 +58,38 @@ namespace StudentMVC.Controllers
         }
 
         // GET: Student/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Student student = container.Students.Where(s => s.StudentId == id).FirstOrDefault();
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(student);
         }
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Student student)
         {
             try
             {
-                // TODO: Add update logic here
+                if(ModelState.IsValid)
+                {
+                    Student fstudent = container.Students.Where(s => s.StudentId == id).FirstOrDefault();
+                    fstudent.FirstName = student.FirstName;
+                    fstudent.LastName = student.LastName;
+                    fstudent.Major = student.Major;
+
+                    container.UpdateObject(fstudent);
+                    container.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
@@ -70,9 +100,20 @@ namespace StudentMVC.Controllers
         }
 
         // GET: Student/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Student student = container.Students.Where(s => s.StudentId == id).FirstOrDefault();
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(student);
         }
 
         // POST: Student/Delete/5
@@ -82,7 +123,9 @@ namespace StudentMVC.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                Student student = container.Students.Where(s => s.StudentId == id).FirstOrDefault();
+                container.DeleteObject(student);
+                container.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
