@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentService", "StudentService\StudentService.csproj", "{C8128266-7882-4CC2-8060-3186576DB0CE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataConsole", "ODataConsole\ODataConsole.csproj", "{BA7A0FF7-EBDD-43CB-BA81-DBECCD6FA3D2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentMVC", "StudentMVC\StudentMVC.csproj", "{ADE0FFDE-BC83-40B4-B4AA-6FD270F427C8}"
 EndProject
 Global
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C8128266-7882-4CC2-8060-3186576DB0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8128266-7882-4CC2-8060-3186576DB0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8128266-7882-4CC2-8060-3186576DB0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8128266-7882-4CC2-8060-3186576DB0CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA7A0FF7-EBDD-43CB-BA81-DBECCD6FA3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA7A0FF7-EBDD-43CB-BA81-DBECCD6FA3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA7A0FF7-EBDD-43CB-BA81-DBECCD6FA3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA7A0FF7-EBDD-43CB-BA81-DBECCD6FA3D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ADE0FFDE-BC83-40B4-B4AA-6FD270F427C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ADE0FFDE-BC83-40B4-B4AA-6FD270F427C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE0FFDE-BC83-40B4-B4AA-6FD270F427C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
